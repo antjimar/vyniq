@@ -20,6 +20,43 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
+  {
+    // UI components guardrails - prevent business logic imports
+    files: ["src/ui/**/*.{ts,tsx}"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              group: ["../features/**", "../../features/**", "../../../features/**"],
+              message: "UI components must not import from features. UI must be presentational-only."
+            },
+            {
+              group: ["../app/**", "../../app/**", "../../../app/**"],
+              message: "UI components must not import from app directory. UI must be presentational-only."
+            },
+            {
+              group: ["../server/**", "../../server/**", "../../../server/**"],
+              message: "UI components must not import from server code. UI must be presentational-only."
+            },
+            {
+              group: ["@/features/**"],
+              message: "UI components must not import from features. UI must be presentational-only."
+            },
+            {
+              group: ["@/app/**"],
+              message: "UI components must not import from app directory. UI must be presentational-only."
+            },
+            {
+              group: ["@/server/**"],
+              message: "UI components must not import from server code. UI must be presentational-only."
+            }
+          ]
+        }
+      ]
+    }
+  }
 ];
 
 export default eslintConfig;

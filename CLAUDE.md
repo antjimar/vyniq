@@ -35,8 +35,8 @@ src/
 
 ## Reglas de Arquitectura
 
-1. **src/ui/*** - Solo componentes presentacionales, sin lógica de negocio
-2. **src/features/*** - Autocontenidos, pueden importar de ui/ y lib/
+1. **src/ui/\*** - Solo componentes presentacionales, sin lógica de negocio
+2. **src/features/\*** - Autocontenidos, pueden importar de ui/ y lib/
 3. **components/** - NO pueden importar services/** ni repo/**
 4. **ESLint rules** - Previenen imports prohibidos
 
@@ -59,10 +59,12 @@ src/
 ## Tokens de Diseño
 
 Los design tokens están en:
+
 - `src/app/globals.css` - CSS variables
 - `tailwind.config.ts` - Configuración Tailwind
 
 Colores principales:
+
 - Primary: `hsl(203.8863 88.2845% 53.1373%)` (azul Vyniq)
 - Destructive: `hsl(356.3033 90.5579% 54.3137%)` (rojo)
 - Border radius personalizado: 6px, 8px
@@ -85,6 +87,6 @@ Colores principales:
 
 2. **Migrar componentes UI**: Usar el análisis completo del documento para extraer exactamente los mismos estilos
 
-3. **ESLint rules**: Configurar reglas restrictivas para src/ui/*
+3. **ESLint rules**: Configurar reglas restrictivas para src/ui/\*
 
 4. **Testing**: Crear playground para verificar que todo funciona visualmente igual

@@ -6,4 +6,4 @@
 // @/components/ui/card -> @/ui/card
 // etc.
 
-export * from '@/ui';
+export * from "@/ui";

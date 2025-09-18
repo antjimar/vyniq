@@ -3,6 +3,7 @@
 ## 📋 Estructura General del Proyecto
 
 ### Stack Tecnológico
+
 - **Frontend**: Next.js 14 + TypeScript + Tailwind CSS + shadcn/ui
 - **Componentes**: Radix UI + Lucide React Icons
 - **Internacionalización**: next-intl (ES/EN)
@@ -14,6 +15,7 @@
 ## 🎨 1. DESIGN TOKENS Y SISTEMA DE DISEÑO
 
 ### CSS Variables y Colores
+
 ```css
 /* src/app/globals.css */
 @tailwind base;
@@ -235,6 +237,7 @@ input[type="number"] {
 ```
 
 ### Tailwind Config
+
 ```typescript
 // tailwind.config.ts
 import type { Config } from "tailwindcss";
@@ -339,6 +342,7 @@ export default {
 ```
 
 ### Utilidad cn() para Merge de Clases
+
 ```typescript
 // src/lib/utils.ts
 import { clsx, type ClassValue } from "clsx";
@@ -354,6 +358,7 @@ export function cn(...inputs: ClassValue[]) {
 ## 🧩 2. COMPONENTES UI BASE (shadcn/ui)
 
 ### Button Component
+
 ```tsx
 // src/components/ui/button.tsx
 "use client";
@@ -369,9 +374,12 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
@@ -413,6 +421,7 @@ export { Button, buttonVariants };
 ```
 
 ### Card Component System
+
 ```tsx
 // src/components/ui/card.tsx
 "use client";
@@ -420,72 +429,92 @@ export { Button, buttonVariants };
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn("rounded-lg border bg-card text-card-foreground shadow-sm", className)}
-      {...props}
-    />
-  )
-);
+const Card = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      className
+    )}
+    {...props}
+  />
+));
 Card.displayName = "Card";
 
-const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn("flex flex-col space-y-1.5 p-6", className)}
-      {...props}
-    />
-  )
-);
+const CardHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex flex-col space-y-1.5 p-6", className)}
+    {...props}
+  />
+));
 CardHeader.displayName = "CardHeader";
 
-const CardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn("text-2xl font-semibold leading-none tracking-tight", className)}
-      {...props}
-    />
-  )
-);
+const CardTitle = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "text-2xl font-semibold leading-none tracking-tight",
+      className
+    )}
+    {...props}
+  />
+));
 CardTitle.displayName = "CardTitle";
 
-const CardDescription = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn("text-sm text-muted-foreground", className)}
-      {...props}
-    />
-  )
-);
+const CardDescription = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
+));
 CardDescription.displayName = "CardDescription";
 
-const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
-  )
-);
+const CardContent = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+));
 CardContent.displayName = "CardContent";
 
-const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn("flex items-center p-6 pt-0", className)}
-      {...props}
-    />
-  )
-);
+const CardFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex items-center p-6 pt-0", className)}
+    {...props}
+  />
+));
 CardFooter.displayName = "CardFooter";
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent };
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
+};
 ```
 
 ### Input Component
+
 ```tsx
 // src/components/ui/input.tsx
 "use client";
@@ -514,6 +543,7 @@ export { Input };
 ```
 
 ### Badge Component con Variantes
+
 ```tsx
 // src/components/ui/badge.tsx
 "use client";
@@ -527,9 +557,12 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default: "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
-        secondary: "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive: "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
+        default:
+          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
+        secondary:
+          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive:
+          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
         outline: "text-foreground",
       },
     },
@@ -553,6 +586,7 @@ export { Badge, badgeVariants };
 ```
 
 ### Dialog/Modal Component
+
 ```tsx
 // src/components/ui/dialog.tsx
 "use client";
@@ -611,7 +645,10 @@ const DialogHeader = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn("flex flex-col space-y-1.5 text-center sm:text-left", className)}
+    className={cn(
+      "flex flex-col space-y-1.5 text-center sm:text-left",
+      className
+    )}
     {...props}
   />
 );
@@ -622,7 +659,10 @@ const DialogFooter = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn("flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2", className)}
+    className={cn(
+      "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
+      className
+    )}
     {...props}
   />
 );
@@ -634,7 +674,10 @@ const DialogTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Title
     ref={ref}
-    className={cn("text-lg font-semibold leading-none tracking-tight", className)}
+    className={cn(
+      "text-lg font-semibold leading-none tracking-tight",
+      className
+    )}
     {...props}
   />
 ));
@@ -667,6 +710,7 @@ export {
 ```
 
 ### Select Component
+
 ```tsx
 // src/components/ui/select.tsx
 "use client";
@@ -706,7 +750,10 @@ const SelectScrollUpButton = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.ScrollUpButton
     ref={ref}
-    className={cn("flex cursor-default items-center justify-center py-1", className)}
+    className={cn(
+      "flex cursor-default items-center justify-center py-1",
+      className
+    )}
     {...props}
   >
     <ChevronUp className="h-4 w-4" />
@@ -720,13 +767,17 @@ const SelectScrollDownButton = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.ScrollDownButton
     ref={ref}
-    className={cn("flex cursor-default items-center justify-center py-1", className)}
+    className={cn(
+      "flex cursor-default items-center justify-center py-1",
+      className
+    )}
     {...props}
   >
     <ChevronDown className="h-4 w-4" />
   </SelectPrimitive.ScrollDownButton>
 ));
-SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayName;
+SelectScrollDownButton.displayName =
+  SelectPrimitive.ScrollDownButton.displayName;
 
 const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
@@ -821,6 +872,7 @@ export {
 ```
 
 ### Table Component System
+
 ```tsx
 // src/components/ui/table.tsx
 "use client";
@@ -828,17 +880,18 @@ export {
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-const Table = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(
-  ({ className, ...props }, ref) => (
-    <div className="relative w-full overflow-auto">
-      <table
-        ref={ref}
-        className={cn("w-full caption-bottom text-sm", className)}
-        {...props}
-      />
-    </div>
-  )
-);
+const Table = React.forwardRef<
+  HTMLTableElement,
+  React.HTMLAttributes<HTMLTableElement>
+>(({ className, ...props }, ref) => (
+  <div className="relative w-full overflow-auto">
+    <table
+      ref={ref}
+      className={cn("w-full caption-bottom text-sm", className)}
+      {...props}
+    />
+  </div>
+));
 Table.displayName = "Table";
 
 const TableHeader = React.forwardRef<
@@ -867,24 +920,28 @@ const TableFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tfoot
     ref={ref}
-    className={cn("border-t bg-muted/50 font-medium [&>tr]:last:border-b-0", className)}
+    className={cn(
+      "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
+      className
+    )}
     {...props}
   />
 ));
 TableFooter.displayName = "TableFooter";
 
-const TableRow = React.forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTMLTableRowElement>>(
-  ({ className, ...props }, ref) => (
-    <tr
-      ref={ref}
-      className={cn(
-        "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
-        className
-      )}
-      {...props}
-    />
-  )
-);
+const TableRow = React.forwardRef<
+  HTMLTableRowElement,
+  React.HTMLAttributes<HTMLTableRowElement>
+>(({ className, ...props }, ref) => (
+  <tr
+    ref={ref}
+    className={cn(
+      "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
+      className
+    )}
+    {...props}
+  />
+));
 TableRow.displayName = "TableRow";
 
 const TableHead = React.forwardRef<
@@ -939,6 +996,7 @@ export {
 ```
 
 ### Form Component System
+
 ```tsx
 // src/components/ui/form.tsx
 "use client";
@@ -1014,17 +1072,18 @@ const FormItemContext = React.createContext<FormItemContextValue>(
   {} as FormItemContextValue
 );
 
-const FormItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => {
-    const id = React.useId();
+const FormItem = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => {
+  const id = React.useId();
 
-    return (
-      <FormItemContext.Provider value={{ id }}>
-        <div ref={ref} className={cn("space-y-2", className)} {...props} />
-      </FormItemContext.Provider>
-    );
-  }
-);
+  return (
+    <FormItemContext.Provider value={{ id }}>
+      <div ref={ref} className={cn("space-y-2", className)} {...props} />
+    </FormItemContext.Provider>
+  );
+});
 FormItem.displayName = "FormItem";
 
 const FormLabel = React.forwardRef<
@@ -1048,7 +1107,8 @@ const FormControl = React.forwardRef<
   React.ElementRef<typeof Slot>,
   React.ComponentPropsWithoutRef<typeof Slot>
 >(({ ...props }, ref) => {
-  const { error, formItemId, formDescriptionId, formMessageId } = useFormField();
+  const { error, formItemId, formDescriptionId, formMessageId } =
+    useFormField();
 
   return (
     <Slot
@@ -1120,6 +1180,7 @@ export {
 ```
 
 ### Alert Component
+
 ```tsx
 // src/components/ui/alert.tsx
 "use client";
@@ -1134,7 +1195,8 @@ const alertVariants = cva(
     variants: {
       variant: {
         default: "bg-background text-foreground",
-        destructive: "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
+        destructive:
+          "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
       },
     },
     defaultVariants: {
@@ -1188,6 +1250,7 @@ export { Alert, AlertTitle, AlertDescription };
 ## 🛠️ 3. COMPONENTES ESPECIALIZADOS REUTILIZABLES
 
 ### Loading States System
+
 ```tsx
 // src/components/ui/loading-states.tsx
 import { Loader2 } from "lucide-react";
@@ -1305,7 +1368,9 @@ export function FormLoading({
   children: React.ReactNode;
 }) {
   return (
-    <div className={`relative ${isLoading ? "pointer-events-none opacity-50" : ""}`}>
+    <div
+      className={`relative ${isLoading ? "pointer-events-none opacity-50" : ""}`}
+    >
       {children}
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-white/50 backdrop-blur-sm">
@@ -1318,13 +1383,17 @@ export function FormLoading({
 ```
 
 ### Skeleton con Shimmer Effect
+
 ```tsx
 // src/components/ui/skeleton.tsx
 "use client";
 
 import { cn } from "@/lib/utils";
 
-function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+function Skeleton({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(
@@ -1341,6 +1410,7 @@ export { Skeleton };
 ```
 
 ### Empty States System
+
 ```tsx
 // src/components/empty-states.tsx
 "use client";
@@ -1348,10 +1418,24 @@ export { Skeleton };
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { FileX, Database, Wallet, TrendingUp, PiggyBank, Target, Plus } from "lucide-react";
+import {
+  FileX,
+  Database,
+  Wallet,
+  TrendingUp,
+  PiggyBank,
+  Target,
+  Plus,
+} from "lucide-react";
 
 interface EmptyStateProps {
-  type: "transactions" | "categories" | "budgets" | "investments" | "balances" | "general";
+  type:
+    | "transactions"
+    | "categories"
+    | "budgets"
+    | "investments"
+    | "balances"
+    | "general";
   onAction?: () => void;
   actionLabel?: string;
 }
@@ -1391,20 +1475,52 @@ export function EmptyState({ type, onAction, actionLabel }: EmptyStateProps) {
 }
 
 // Specific empty states for common use cases
-export function NoTransactionsState({ onAddTransaction }: { onAddTransaction?: () => void }) {
-  return <EmptyState type="transactions" {...(onAddTransaction && { onAction: onAddTransaction })} />;
+export function NoTransactionsState({
+  onAddTransaction,
+}: {
+  onAddTransaction?: () => void;
+}) {
+  return (
+    <EmptyState
+      type="transactions"
+      {...(onAddTransaction && { onAction: onAddTransaction })}
+    />
+  );
 }
 
-export function NoCategoriesState({ onAddCategory }: { onAddCategory?: () => void }) {
-  return <EmptyState type="categories" {...(onAddCategory && { onAction: onAddCategory })} />;
+export function NoCategoriesState({
+  onAddCategory,
+}: {
+  onAddCategory?: () => void;
+}) {
+  return (
+    <EmptyState
+      type="categories"
+      {...(onAddCategory && { onAction: onAddCategory })}
+    />
+  );
 }
 
 export function NoBudgetsState({ onAddBudget }: { onAddBudget?: () => void }) {
-  return <EmptyState type="budgets" {...(onAddBudget && { onAction: onAddBudget })} />;
+  return (
+    <EmptyState
+      type="budgets"
+      {...(onAddBudget && { onAction: onAddBudget })}
+    />
+  );
 }
 
-export function NoInvestmentsState({ onAddInvestment }: { onAddInvestment?: () => void }) {
-  return <EmptyState type="investments" {...(onAddInvestment && { onAction: onAddInvestment })} />;
+export function NoInvestmentsState({
+  onAddInvestment,
+}: {
+  onAddInvestment?: () => void;
+}) {
+  return (
+    <EmptyState
+      type="investments"
+      {...(onAddInvestment && { onAction: onAddInvestment })}
+    />
+  );
 }
 
 export function NoBalancesState() {
@@ -1430,6 +1546,7 @@ export function NoResultsState() {
 ```
 
 ### Skeleton Loaders Especializados
+
 ```tsx
 // src/components/loading/skeleton-loaders.tsx
 "use client";
@@ -1504,7 +1621,10 @@ export function DataTableSkeleton() {
 
         {/* Table rows */}
         {Array.from({ length: 5 }).map((_, i) => (
-          <div key={i} className="grid grid-cols-6 gap-4 py-4 border-b border-gray-100">
+          <div
+            key={i}
+            className="grid grid-cols-6 gap-4 py-4 border-b border-gray-100"
+          >
             {Array.from({ length: 6 }).map((_, j) => (
               <Skeleton key={j} className="h-8 w-full" />
             ))}
@@ -1574,6 +1694,7 @@ export function SectionSkeleton() {
 ## 💬 4. TOAST NOTIFICATION SYSTEM
 
 ### Toast Component Avanzado
+
 ```tsx
 // src/components/ui/toast.tsx
 "use client";
@@ -1606,10 +1727,14 @@ const toastVariants = cva(
   {
     variants: {
       variant: {
-        default: "border-gray-300 bg-white text-gray-800 shadow-[0_8px_16px_-4px_rgba(0,0,0,0.15)]",
-        destructive: "border-[#EF4444] bg-red-50 text-red-900 shadow-[0_8px_16px_-4px_rgba(239,68,68,0.3)]",
-        success: "border-[#10B981] bg-green-50 text-green-900 shadow-[0_8px_16px_-4px_rgba(16,185,129,0.3)]",
-        warning: "border-yellow-400 bg-yellow-50 text-yellow-900 shadow-[0_8px_16px_-4px_rgba(245,158,11,0.25)]",
+        default:
+          "border-gray-300 bg-white text-gray-800 shadow-[0_8px_16px_-4px_rgba(0,0,0,0.15)]",
+        destructive:
+          "border-[#EF4444] bg-red-50 text-red-900 shadow-[0_8px_16px_-4px_rgba(239,68,68,0.3)]",
+        success:
+          "border-[#10B981] bg-green-50 text-green-900 shadow-[0_8px_16px_-4px_rgba(16,185,129,0.3)]",
+        warning:
+          "border-yellow-400 bg-yellow-50 text-yellow-900 shadow-[0_8px_16px_-4px_rgba(245,158,11,0.25)]",
         info: "border-blue-400 bg-blue-50 text-blue-900 shadow-[0_8px_16px_-4px_rgba(59,130,246,0.25)]",
       },
     },
@@ -1716,6 +1841,7 @@ export {
 ```
 
 ### Sistema Unificado de Notificaciones
+
 ```tsx
 // src/lib/notifications.ts
 /**
@@ -1750,9 +1876,15 @@ import type { ToastProps } from "@/components/ui/toast";
 import * as React from "react";
 
 // Type definitions for the notification system
-export type NotificationType = "success" | "destructive" | "warning" | "info" | "default";
+export type NotificationType =
+  | "success"
+  | "destructive"
+  | "warning"
+  | "info"
+  | "default";
 
-export interface NotificationOptions extends Omit<ToastProps, "variant" | "description"> {
+export interface NotificationOptions
+  extends Omit<ToastProps, "variant" | "description"> {
   id?: string;
 }
 
@@ -1765,7 +1897,10 @@ export interface FullNotificationOptions extends Omit<ToastProps, "variant"> {
  * @param message - The message to display
  * @param options - Additional options like title, duration, etc.
  */
-export function showSuccess(message: React.ReactNode, options?: NotificationOptions) {
+export function showSuccess(
+  message: React.ReactNode,
+  options?: NotificationOptions
+) {
   return success(message, options);
 }
 
@@ -1774,7 +1909,10 @@ export function showSuccess(message: React.ReactNode, options?: NotificationOpti
  * @param message - The error message to display
  * @param options - Additional options like title, duration, etc.
  */
-export function showError(message: React.ReactNode, options?: NotificationOptions) {
+export function showError(
+  message: React.ReactNode,
+  options?: NotificationOptions
+) {
   return error(message, options);
 }
 
@@ -1783,7 +1921,10 @@ export function showError(message: React.ReactNode, options?: NotificationOption
  * @param message - The warning message to display
  * @param options - Additional options like title, duration, etc.
  */
-export function showWarning(message: React.ReactNode, options?: NotificationOptions) {
+export function showWarning(
+  message: React.ReactNode,
+  options?: NotificationOptions
+) {
   return warning(message, options);
 }
 
@@ -1792,7 +1933,10 @@ export function showWarning(message: React.ReactNode, options?: NotificationOpti
  * @param message - The info message to display
  * @param options - Additional options like title, duration, etc.
  */
-export function showInfo(message: React.ReactNode, options?: NotificationOptions) {
+export function showInfo(
+  message: React.ReactNode,
+  options?: NotificationOptions
+) {
   return info(message, options);
 }
 
@@ -1810,7 +1954,9 @@ export function showNotification(options: FullNotificationOptions) {
  * Show success notification for save operations
  */
 export function showSaveSuccess(entity?: string) {
-  const message = entity ? `${entity} guardado correctamente` : "Guardado correctamente";
+  const message = entity
+    ? `${entity} guardado correctamente`
+    : "Guardado correctamente";
   return showSuccess(message);
 }
 
@@ -1826,7 +1972,9 @@ export function showSaveError(entity?: string, error?: string) {
  * Show success notification for delete operations
  */
 export function showDeleteSuccess(entity?: string) {
-  const message = entity ? `${entity} eliminado correctamente` : "Eliminado correctamente";
+  const message = entity
+    ? `${entity} eliminado correctamente`
+    : "Eliminado correctamente";
   return showSuccess(message);
 }
 
@@ -1883,13 +2031,19 @@ export type { ToastProps } from "@/components/ui/toast";
 ## ✅ 5. MODAL DE CONFIRMACIÓN REUTILIZABLE
 
 ### Modal de Confirmación Completo
+
 ```tsx
 // src/components/ui/confirmation-modal.tsx
 "use client";
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { AlertTriangle, Info, AlertCircle, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -2009,25 +2163,29 @@ function EntityPreviewCard({
         </div>
 
         {/* Right section: Metadata */}
-        {entityPreview.metadata && Object.keys(entityPreview.metadata).length > 0 && (
-          <div className="flex flex-col gap-1.5 items-end flex-shrink-0">
-            {Object.entries(entityPreview.metadata).map(([key, value]) => (
-              <span
-                key={key}
-                className={cn(
-                  "text-xs font-medium px-2.5 py-1 rounded-full border",
-                  // Metadata styling based on variant
-                  variant === "destructive" && "bg-red-50 text-red-700 border-red-200",
-                  variant === "warning" && "bg-amber-50 text-amber-700 border-amber-200",
-                  variant === "info" && "bg-blue-50 text-blue-700 border-blue-200"
-                )}
-                title={`${key}: ${value}`}
-              >
-                {value}
-              </span>
-            ))}
-          </div>
-        )}
+        {entityPreview.metadata &&
+          Object.keys(entityPreview.metadata).length > 0 && (
+            <div className="flex flex-col gap-1.5 items-end flex-shrink-0">
+              {Object.entries(entityPreview.metadata).map(([key, value]) => (
+                <span
+                  key={key}
+                  className={cn(
+                    "text-xs font-medium px-2.5 py-1 rounded-full border",
+                    // Metadata styling based on variant
+                    variant === "destructive" &&
+                      "bg-red-50 text-red-700 border-red-200",
+                    variant === "warning" &&
+                      "bg-amber-50 text-amber-700 border-amber-200",
+                    variant === "info" &&
+                      "bg-blue-50 text-blue-700 border-blue-200"
+                  )}
+                  title={`${key}: ${value}`}
+                >
+                  {value}
+                </span>
+              ))}
+            </div>
+          )}
       </div>
     </div>
   );
@@ -2181,7 +2339,10 @@ export default function ConfirmationModal({
                 aria-label="Item details"
                 aria-describedby="entity-preview-description"
               >
-                <EntityPreviewCard entityPreview={entityPreview} variant={variant} />
+                <EntityPreviewCard
+                  entityPreview={entityPreview}
+                  variant={variant}
+                />
                 <span id="entity-preview-description" className="sr-only">
                   Details for {entityPreview.name}
                   {entityPreview.subtitle && `: ${entityPreview.subtitle}`}
@@ -2244,7 +2405,9 @@ export default function ConfirmationModal({
               // Loading state styling improvements
               isLoading && "cursor-not-allowed"
             )}
-            aria-describedby={isLoading ? "loading-status" : "confirm-button-description"}
+            aria-describedby={
+              isLoading ? "loading-status" : "confirm-button-description"
+            }
             aria-live={isLoading ? "polite" : undefined}
           >
             {isLoading ? (
@@ -2255,7 +2418,9 @@ export default function ConfirmationModal({
                     aria-hidden="true"
                   />
                 )}
-                <span className="truncate transition-all duration-200">{loadingText}</span>
+                <span className="truncate transition-all duration-200">
+                  {loadingText}
+                </span>
                 <span id="loading-status" className="sr-only">
                   Action in progress, please wait
                 </span>
@@ -2345,12 +2510,17 @@ export type { ConfirmationModalProps, ConfirmationModalVariant };
 ## 📊 6. DATE PICKER OPTIMIZADO
 
 ### Date Picker con Variantes
+
 ```tsx
 // src/components/ui/date-picker.tsx
 "use client";
 
 import { useState, useCallback, useMemo, forwardRef } from "react";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
 import { CalendarIcon } from "lucide-react";
@@ -2556,6 +2726,7 @@ export type { DatePickerProps, DatePickerVariant };
 ## 📊 7. CHART SYSTEM COMPONENTS
 
 ### Chart Container System
+
 ```tsx
 // src/components/ui/chart.tsx
 "use client";
@@ -2597,7 +2768,9 @@ const ChartContainer = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> & {
     config: ChartConfig;
-    children: React.ComponentProps<typeof RechartsPrimitive.ResponsiveContainer>["children"];
+    children: React.ComponentProps<
+      typeof RechartsPrimitive.ResponsiveContainer
+    >["children"];
   }
 >(({ id, className, children, config, ...props }, ref) => {
   const uniqueId = React.useId();
@@ -2615,7 +2788,9 @@ const ChartContainer = React.forwardRef<
         {...props}
       >
         <ChartStyle id={chartId} config={config} />
-        <RechartsPrimitive.ResponsiveContainer>{children}</RechartsPrimitive.ResponsiveContainer>
+        <RechartsPrimitive.ResponsiveContainer>
+          {children}
+        </RechartsPrimitive.ResponsiveContainer>
       </div>
     </ChartContext.Provider>
   );
@@ -2714,7 +2889,15 @@ const ChartTooltipContent = React.forwardRef<
       }
 
       return <div className={cn("font-medium", labelClassName)}>{value}</div>;
-    }, [label, labelFormatter, payload, hideLabel, labelClassName, config, labelKey]);
+    }, [
+      label,
+      labelFormatter,
+      payload,
+      hideLabel,
+      labelClassName,
+      config,
+      labelKey,
+    ]);
 
     if (!active || !payload?.length) {
       return null;
@@ -2864,7 +3047,11 @@ const ChartLegendContent = React.forwardRef<
 ChartLegendContent.displayName = "ChartLegend";
 
 // Helper to extract item config from a payload.
-function getPayloadConfigFromPayload(config: ChartConfig, payload: unknown, key: string) {
+function getPayloadConfigFromPayload(
+  config: ChartConfig,
+  payload: unknown,
+  key: string
+) {
   if (typeof payload !== "object" || payload === null) {
     return undefined;
   }
@@ -2878,14 +3065,19 @@ function getPayloadConfigFromPayload(config: ChartConfig, payload: unknown, key:
 
   let configLabelKey: string = key;
 
-  if (key in payload && typeof payload[key as keyof typeof payload] === "string") {
+  if (
+    key in payload &&
+    typeof payload[key as keyof typeof payload] === "string"
+  ) {
     configLabelKey = payload[key as keyof typeof payload] as string;
   } else if (
     payloadPayload &&
     key in payloadPayload &&
     typeof payloadPayload[key as keyof typeof payloadPayload] === "string"
   ) {
-    configLabelKey = payloadPayload[key as keyof typeof payloadPayload] as string;
+    configLabelKey = payloadPayload[
+      key as keyof typeof payloadPayload
+    ] as string;
   }
 
   return configLabelKey in config
@@ -2908,11 +3100,13 @@ export {
 ## 🔧 8. UTILIDADES Y HELPERS
 
 ### Formateo de Moneda (EUR)
+
 ```typescript
 // src/lib/format-utils.ts
 export function formatCurrency(amount: number | string): string {
   // Manual Spanish format: dot as thousands separator, comma as decimal separator
-  const numericAmount = typeof amount === "number" ? amount : parseFloat(amount?.toString() || "0");
+  const numericAmount =
+    typeof amount === "number" ? amount : parseFloat(amount?.toString() || "0");
   const formattedNumber = formatNumber(numericAmount);
   return `${formattedNumber} €`;
 }
@@ -2924,7 +3118,8 @@ export function formatPercent(value: number): string {
 export function formatNumber(amount: number | string): string {
   // Manual Spanish format for numbers without currency symbol
   // Punto como separador de miles, coma como separador decimal
-  let numericAmount = typeof amount === "number" ? amount : parseFloat(amount?.toString() || "0");
+  let numericAmount =
+    typeof amount === "number" ? amount : parseFloat(amount?.toString() || "0");
 
   // Handle edge cases: NaN, Infinity, very large numbers
   if (!isFinite(numericAmount) || isNaN(numericAmount)) {
@@ -2963,12 +3158,19 @@ export function parseAmount(value: string): number {
 ```
 
 ### Table Footer con Calculadoras
+
 ```tsx
 // src/components/table-footer.tsx
 "use client";
 
 import { useState } from "react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { formatCurrency } from "@/lib/format-utils";
 
 export type FooterOperation = "none" | "sum" | "average";
@@ -3086,6 +3288,7 @@ export default function TableFooterRow({ data, columns }: TableFooterRowProps) {
 ### Patrones de Separación Recomendados
 
 **❌ Antes (mezclado):**
+
 ```tsx
 // Componente que mezcla UI + lógica de negocio
 function TransactionTable() {
@@ -3093,15 +3296,12 @@ function TransactionTable() {
   const { workspace } = useWorkspace();
   // ... 50 líneas de lógica de negocio
 
-  return (
-    <div>
-      {/* ... JSX complejo mezclado con lógica */}
-    </div>
-  );
+  return <div>{/* ... JSX complejo mezclado con lógica */}</div>;
 }
 ```
 
 **✅ Después (separado):**
+
 ```tsx
 // Hook personalizado para lógica
 function useTransactionLogic() {
@@ -3114,11 +3314,7 @@ function useTransactionLogic() {
 
 // Componente UI puro
 function TransactionTable({ transactions, loading, onEdit, onDelete }) {
-  return (
-    <div>
-      {/* ... Solo JSX y presentación */}
-    </div>
-  );
+  return <div>{/* ... Solo JSX y presentación */}</div>;
 }
 
 // Componente contenedor
@@ -3141,6 +3337,7 @@ function TransactionSection() {
 ## 🎯 10. RESUMEN DE COMPONENTES EXTRAÍBLES
 
 ### Componentes UI Base (46 archivos)
+
 - **Button** con 6 variantes y 4 tamaños
 - **Card** system (Header, Content, Footer, Title, Description)
 - **Input** con validación y estados
@@ -3158,6 +3355,7 @@ function TransactionSection() {
 - **Accordion, Tabs, Popover, Tooltip** etc.
 
 ### Componentes Especializados Reutilizables
+
 - **ConfirmationModal**: Modal avanzado con previews de entidades
 - **EmptyState**: Estados vacíos temáticos
 - **LoadingSpinner**: Diferentes tamaños y contextos
@@ -3166,6 +3364,7 @@ function TransactionSection() {
 - **DatePicker**: Optimizado con variantes cell/button
 
 ### Design Tokens Clave
+
 - **Colores**: Sistema HSL completo con temas claro/oscuro
 - **Typography**: Open Sans como fuente principal
 - **Spacing**: Sistema basado en 0.25rem
@@ -3178,6 +3377,7 @@ function TransactionSection() {
 ## 🚀 11. INSTRUCCIONES DE IMPLEMENTACIÓN
 
 ### Dependencias Necesarias
+
 ```json
 {
   "dependencies": {
@@ -3199,6 +3399,7 @@ function TransactionSection() {
 ```
 
 ### Configuración Tailwind
+
 ```javascript
 // tailwind.config.js
 module.exports = {
@@ -3214,10 +3415,11 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
 ```
 
 ### Estructura de Archivos Recomendada
+
 ```
 src/
 ├── components/
@@ -3245,6 +3447,7 @@ src/
 ```
 
 ### Pasos de Migración
+
 1. **Instalar dependencias** listadas arriba
 2. **Copiar globals.css** completo con variables CSS
 3. **Configurar Tailwind** con los colores y plugins

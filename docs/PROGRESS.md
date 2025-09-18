@@ -3,6 +3,7 @@
 ## Estado Actual: FASE 1 ✅ COMPLETADA
 
 ### ✅ Completado - Fase 1
+
 - [x] Estructura básica de directorios
 - [x] Configuración i18n (`useT()`)
 - [x] TanStack Query setup
@@ -27,6 +28,7 @@
 - [x] Verificación `npm run lint && npm run dev`
 
 ### 🚀 Lista para Commit
+
 - Fase 1 completada exitosamente
 - Todos los componentes UI migrados
 - ESLint configurado con reglas restrictivas
@@ -37,7 +39,7 @@
 ## Próximos Pasos
 
 1. **Completar Fase 1**: Migrar todos los componentes UI base
-2. **Commit Fase 1**: "feat: migrate UI components to src/ui/* with feature-sliced design"
+2. **Commit Fase 1**: "feat: migrate UI components to src/ui/\* with feature-sliced design"
 3. **Empezar Fase 2**: Componentes especializados (loading, empty states, toasts)
 
 ---
@@ -45,18 +47,21 @@
 ## Notas de Desarrollo
 
 ### Dependencias Actuales
+
 - ✅ `clsx` + `tailwind-merge` instalados
 - ✅ `@tanstack/react-query` + devtools instalados
 - ✅ `zod` para schemas
 - ✅ `msw` para mocking
 
 ### Dependencias Necesarias
+
 - [ ] `class-variance-authority` (para variantes de componentes)
 - [ ] `@radix-ui/*` componentes (dialog, select, etc.)
 - [ ] `lucide-react` para iconos
 - [ ] `react-hook-form` para formularios
 
 ### Estructura Target
+
 ```
 src/
 ├── ui/                    # Design System puro
@@ -75,9 +80,11 @@ src/
 ---
 
 ## Issues Conocidos
+
 - [ ] Ninguno por ahora
 
 ## Decisiones Técnicas
+
 - **UI Framework**: Tailwind CSS + Radix UI (mantener shadcn/ui approach)
 - **Estado**: TanStack Query para server state, React state para UI
 - **Validación**: Zod schemas por feature

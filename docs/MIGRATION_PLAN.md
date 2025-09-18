@@ -1,15 +1,18 @@
 # Plan de Migración UI → Feature-Sliced Design
 
 ## Objetivo
+
 Migrar la aplicación Vyniq desde una arquitectura monolítica a Feature-Sliced Design manteniendo **exactamente** el mismo look&feel visual.
 
 ## Fases de Implementación
 
 ### ✅ FASE 1: Design System Base
+
 **Estado**: 🟡 En progreso
 **Objetivo**: Extraer y consolidar el design system en `src/ui/*`
 
 #### Tareas
+
 - [x] Mantener `tailwind.config.ts` y `src/app/globals.css`
 - [x] Mantener `src/lib/utils.ts` con `cn()`
 - [ ] Migrar componentes UI base a `src/ui/*`
@@ -18,6 +21,7 @@ Migrar la aplicación Vyniq desde una arquitectura monolítica a Feature-Sliced 
 - [ ] Crear UI playground
 
 #### Componentes a migrar
+
 - `src/ui/button.tsx` - Variantes: default, destructive, outline, secondary, ghost, link
 - `src/ui/input.tsx` - Con estilos number inputs y placeholders
 - `src/ui/card.tsx` - Sistema completo (Header, Title, Description, Content, Footer)
@@ -32,10 +36,12 @@ Migrar la aplicación Vyniq desde una arquitectura monolítica a Feature-Sliced 
 ---
 
 ### ⏳ FASE 2: Componentes Especializados
+
 **Estado**: 🔴 Pendiente
 **Objetivo**: Migrar componentes de loading, empty states y toasts
 
 #### Componentes
+
 - `src/ui/loading-states.tsx`
 - `src/ui/skeleton-loaders.tsx`
 - `src/ui/empty-states.tsx`
@@ -46,10 +52,12 @@ Migrar la aplicación Vyniq desde una arquitectura monolítica a Feature-Sliced 
 ---
 
 ### ⏳ FASE 3: Features Core
+
 **Estado**: 🔴 Pendiente
 **Objetivo**: Implementar features básicas con nueva arquitectura
 
 #### Features
+
 - `src/features/categories/`
 - `src/features/workspaces/`
 - `src/features/shell/` (navegación)
@@ -57,10 +65,12 @@ Migrar la aplicación Vyniq desde una arquitectura monolítica a Feature-Sliced 
 ---
 
 ### ⏳ FASE 4-5: Features Principales
+
 **Estado**: 🔴 Pendiente
 **Objetivo**: Migrar features principales
 
 #### Features
+
 - `src/features/transactions/` (income/expenses)
 - `src/features/budgets/`
 - `src/features/balances/`
@@ -71,10 +81,12 @@ Migrar la aplicación Vyniq desde una arquitectura monolítica a Feature-Sliced 
 ---
 
 ### ⏳ FASE 6: Integración Final
+
 **Estado**: 🔴 Pendiente
 **Objetivo**: Integración completa y testing
 
 #### Tareas
+
 - Setup MSW completo
 - Layout updates
 - UI Playground completo

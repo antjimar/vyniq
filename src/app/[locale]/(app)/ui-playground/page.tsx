@@ -191,7 +191,9 @@ export default function UIPlaygroundPage() {
       <Card>
         <CardHeader>
           <CardTitle>Select Component</CardTitle>
-          <CardDescription>Dropdown select with various options</CardDescription>
+          <CardDescription>
+            Dropdown select with various options
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -230,7 +232,9 @@ export default function UIPlaygroundPage() {
       <Card>
         <CardHeader>
           <CardTitle>Data Table</CardTitle>
-          <CardDescription>Sample data table with various columns</CardDescription>
+          <CardDescription>
+            Sample data table with various columns
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
@@ -249,21 +253,27 @@ export default function UIPlaygroundPage() {
                 <TableCell>Grocery Shopping</TableCell>
                 <TableCell>Food</TableCell>
                 <TableCell className="text-right">$45.32</TableCell>
-                <TableCell><Badge variant="secondary">Completed</Badge></TableCell>
+                <TableCell>
+                  <Badge variant="secondary">Completed</Badge>
+                </TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>2024-01-14</TableCell>
                 <TableCell>Gas Station</TableCell>
                 <TableCell>Transport</TableCell>
                 <TableCell className="text-right">$52.10</TableCell>
-                <TableCell><Badge variant="secondary">Completed</Badge></TableCell>
+                <TableCell>
+                  <Badge variant="secondary">Completed</Badge>
+                </TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>2024-01-13</TableCell>
                 <TableCell>Movie Tickets</TableCell>
                 <TableCell>Entertainment</TableCell>
                 <TableCell className="text-right">$24.00</TableCell>
-                <TableCell><Badge variant="outline">Pending</Badge></TableCell>
+                <TableCell>
+                  <Badge variant="outline">Pending</Badge>
+                </TableCell>
               </TableRow>
             </TableBody>
           </Table>
@@ -274,7 +284,9 @@ export default function UIPlaygroundPage() {
       <Card>
         <CardHeader>
           <CardTitle>Loading States</CardTitle>
-          <CardDescription>Skeleton loaders for different content types</CardDescription>
+          <CardDescription>
+            Skeleton loaders for different content types
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
@@ -324,15 +336,18 @@ export default function UIPlaygroundPage() {
               <DialogHeader>
                 <DialogTitle>Are you absolutely sure?</DialogTitle>
                 <DialogDescription>
-                  This action cannot be undone. This will permanently delete your
-                  account and remove your data from our servers.
+                  This action cannot be undone. This will permanently delete
+                  your account and remove your data from our servers.
                 </DialogDescription>
               </DialogHeader>
               <DialogFooter>
                 <Button variant="outline" onClick={() => setDialogOpen(false)}>
                   Cancel
                 </Button>
-                <Button variant="destructive" onClick={() => setDialogOpen(false)}>
+                <Button
+                  variant="destructive"
+                  onClick={() => setDialogOpen(false)}
+                >
                   Continue
                 </Button>
               </DialogFooter>

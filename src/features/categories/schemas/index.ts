@@ -1,22 +1,22 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 export const CategorySchema = z.object({
   id: z.string(),
-  name: z.string().min(1, 'Category name is required'),
-  type: z.enum(['income', 'expense']),
+  name: z.string().min(1, "Category name is required"),
+  type: z.enum(["income", "expense"]),
   workspaceId: z.string(),
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime(),
 });
 
 export const CreateCategorySchema = z.object({
-  name: z.string().min(1, 'Category name is required'),
-  type: z.enum(['income', 'expense']),
+  name: z.string().min(1, "Category name is required"),
+  type: z.enum(["income", "expense"]),
   workspaceId: z.string(),
 });
 
 export const UpdateCategorySchema = z.object({
-  name: z.string().min(1, 'Category name is required').optional(),
+  name: z.string().min(1, "Category name is required").optional(),
 });
 
 export const CategoriesResponseSchema = z.object({

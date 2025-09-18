@@ -1,55 +1,68 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import type { Category, CreateCategory, UpdateCategory, CategoriesResponse } from '../schemas';
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import type {
+  Category,
+  CreateCategory,
+  UpdateCategory,
+  CategoriesResponse,
+} from "../schemas";
 
-const CATEGORIES_QUERY_KEY = ['categories'] as const;
+const CATEGORIES_QUERY_KEY = ["categories"] as const;
 
 interface GetCategoriesParams {
-  type?: 'income' | 'expense';
+  type?: "income" | "expense";
   workspaceId: string;
 }
 
-async function getCategories(params: GetCategoriesParams): Promise<CategoriesResponse> {
+async function getCategories(
+  params: GetCategoriesParams
+): Promise<CategoriesResponse> {
   const searchParams = new URLSearchParams();
-  if (params.type) searchParams.append('type', params.type);
-  searchParams.append('workspaceId', params.workspaceId);
+  if (params.type) searchParams.append("type", params.type);
+  searchParams.append("workspaceId", params.workspaceId);
 
   const response = await fetch(`/api/categories?${searchParams}`);
   if (!response.ok) {
-    throw new Error('Failed to fetch categories');
+    throw new Error("Failed to fetch categories");
   }
   return response.json();
 }
 
 async function createCategory(data: CreateCategory): Promise<Category> {
-  const response = await fetch('/api/categories', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+  const response = await fetch("/api/categories", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
   if (!response.ok) {
-    throw new Error('Failed to create category');
+    throw new Error("Failed to create category");
   }
   return response.json();
 }
 
-async function updateCategory({ id, data }: { id: string; data: UpdateCategory }): Promise<Category> {
+async function updateCategory({
+  id,
+  data,
+}: {
+  id: string;
+  data: UpdateCategory;
+}): Promise<Category> {
   const response = await fetch(`/api/categories/${id}`, {
-    method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
   if (!response.ok) {
-    throw new Error('Failed to update category');
+    throw new Error("Failed to update category");
   }
   return response.json();
 }
 
 async function deleteCategory(id: string): Promise<void> {
   const response = await fetch(`/api/categories/${id}`, {
-    method: 'DELETE',
+    method: "DELETE",
   });
   if (!response.ok) {
-    throw new Error('Failed to delete category');
+    throw new Error("Failed to delete category");
   }
 }
 

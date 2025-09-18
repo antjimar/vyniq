@@ -29,34 +29,44 @@ const eslintConfig = [
         {
           patterns: [
             {
-              group: ["../features/**", "../../features/**", "../../../features/**"],
-              message: "UI components must not import from features. UI must be presentational-only."
+              group: [
+                "../features/**",
+                "../../features/**",
+                "../../../features/**",
+              ],
+              message:
+                "UI components must not import from features. UI must be presentational-only.",
             },
             {
               group: ["../app/**", "../../app/**", "../../../app/**"],
-              message: "UI components must not import from app directory. UI must be presentational-only."
+              message:
+                "UI components must not import from app directory. UI must be presentational-only.",
             },
             {
               group: ["../server/**", "../../server/**", "../../../server/**"],
-              message: "UI components must not import from server code. UI must be presentational-only."
+              message:
+                "UI components must not import from server code. UI must be presentational-only.",
             },
             {
               group: ["@/features/**"],
-              message: "UI components must not import from features. UI must be presentational-only."
+              message:
+                "UI components must not import from features. UI must be presentational-only.",
             },
             {
               group: ["@/app/**"],
-              message: "UI components must not import from app directory. UI must be presentational-only."
+              message:
+                "UI components must not import from app directory. UI must be presentational-only.",
             },
             {
               group: ["@/server/**"],
-              message: "UI components must not import from server code. UI must be presentational-only."
-            }
-          ]
-        }
-      ]
-    }
-  }
+              message:
+                "UI components must not import from server code. UI must be presentational-only.",
+            },
+          ],
+        },
+      ],
+    },
+  },
 ];
 
 export default eslintConfig;

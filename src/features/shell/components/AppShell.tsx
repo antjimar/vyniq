@@ -10,9 +10,7 @@ export function AppShell({ children }: AppShellProps) {
           <h1 className="text-xl font-semibold">Vyniq</h1>
         </div>
       </header>
-      <main className="container mx-auto px-4 py-6">
-        {children}
-      </main>
+      <main className="container mx-auto px-4 py-6">{children}</main>
     </div>
   );
 }

@@ -20,9 +20,9 @@ Desarrollo fullstack de aplicación de finanzas personales con React/Next.js fro
 **Estimación:** 1-2 sesiones
 
 ### 1.1 Setup PostgreSQL con Docker
-- [ ] Docker Compose para PostgreSQL
-- [ ] Verificar conexión a base de datos
-- [ ] **Commit:** `feat: add PostgreSQL docker setup`
+- [X] Docker Compose para PostgreSQL
+- [X] Verificar conexión a base de datos
+- [X] **Commit:** `feat: add PostgreSQL docker setup`
 
 ### 1.2 Modelo de datos simplificado
 ```sql

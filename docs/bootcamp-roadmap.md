@@ -41,14 +41,14 @@ CREATE TABLE transactions (
 - [X] **Commit:** `feat: add simplified transaction model`
 
 ### 1.3 API Backend con Next.js
-- [ ] Setup Prisma ORM
-- [ ] API Routes en `apps/api/src/app/api/`
-- [ ] Endpoints básicos:
-  - `GET /api/transactions` - Listar todas
-  - `POST /api/transactions` - Crear nueva
-  - `GET /api/transactions/[id]` - Obtener por ID
-  - `PUT /api/transactions/[id]` - Actualizar
-  - `DELETE /api/transactions/[id]` - Eliminar
+- [X] Setup Prisma ORM
+- [X] API Routes en `apps/api/src/app/api/`
+- [X] Endpoints básicos:
+  - [X] `GET /api/transactions` - Listar todas
+  - [X] `POST /api/transactions` - Crear nueva
+  - [ ] `GET /api/transactions/[id]` - Obtener por ID
+  - [ ] `PUT /api/transactions/[id]` - Actualizar
+  - [ ] `DELETE /api/transactions/[id]` - Eliminar
 - [ ] **Commit:** `feat: add transaction API endpoints`
 
 ### 1.4 Datos de prueba

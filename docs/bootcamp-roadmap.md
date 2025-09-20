@@ -38,7 +38,7 @@ CREATE TABLE transactions (
   updated_at TIMESTAMP DEFAULT NOW()
 );
 ```
-- [ ] **Commit:** `feat: add simplified transaction model`
+- [X] **Commit:** `feat: add simplified transaction model`
 
 ### 1.3 API Backend con Next.js
 - [ ] Setup Prisma ORM

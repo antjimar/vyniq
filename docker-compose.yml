@@ -1,0 +1,22 @@
+services:
+  postgres:                    # Nombre del servicio (interno)
+    image: postgres:15         # Imagen oficial de PostgreSQL v15
+    container_name: vyniq-db   # Nombre del contenedor (lo que ves en docker ps)
+    restart: always            # Reiniciar automáticamente si falla
+    environment:               # Variables de entorno para PostgreSQL
+      POSTGRES_USER: vyniq_user      # Usuario admin de la DB
+      POSTGRES_PASSWORD: vyniq_password  # Contraseña
+      POSTGRES_DB: vyniq             # Base de datos inicial a crear
+    ports:
+      - "5432:5432"           # Puerto host:contenedor (externo:interno)
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Datos persistentes
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Script de inicialización
+    healthcheck:              # Verificar que PostgreSQL está listo
+      test: ["CMD-SHELL", "pg_isready -U vyniq_user -d vyniq"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  postgres_data:              # Volumen nombrado para persistencia

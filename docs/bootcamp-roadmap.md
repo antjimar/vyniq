@@ -73,10 +73,10 @@ CREATE TABLE transactions (
 ### Objetivo: UI que consume API real
 **Estimación:** 1-2 sesiones
 
-### 2.1 Tipos TypeScript compartidos
-- [ ] Interface `Transaction` en `packages/shared-types`
-- [ ] Exportar tipos para frontend y backend
-- [ ] **Commit:** `feat: add shared TypeScript transaction types`
+### 2.1 Tipos TypeScript frontend
+- [ ] Interface `Transaction` en `apps/web/src/types/`
+- [ ] Tipos específicos del frontend (no compartidos)
+- [ ] **Commit:** `feat: add frontend transaction types`
 
 ### 2.2 Componente TransactionItem
 - [ ] Props basadas en modelo Transaction

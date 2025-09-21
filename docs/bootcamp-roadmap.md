@@ -46,15 +46,20 @@ CREATE TABLE transactions (
 - [X] Endpoints básicos:
   - [X] `GET /api/transactions` - Listar todas
   - [X] `POST /api/transactions` - Crear nueva
-  - [ ] `GET /api/transactions/[id]` - Obtener por ID
-  - [ ] `PUT /api/transactions/[id]` - Actualizar
-  - [ ] `DELETE /api/transactions/[id]` - Eliminar
-- [ ] **Commit:** `feat: add transaction API endpoints`
+  - [X] `GET /api/transactions/[id]` - Obtener por ID
+  - [X] `PUT /api/transactions/[id]` - Actualizar
+  - [X] `DELETE /api/transactions/[id]` - Eliminar
+- [X] Sistema de papelera completo:
+  - [X] Campo `deleted_at` añadido al schema Prisma
+  - [X] `GET /api/transactions/trash` - Ver transacciones en papelera
+  - [X] `PUT /api/transactions/[id]/restore` - Restaurar desde papelera  
+  - [X] `DELETE /api/transactions/[id]/permanent` - Borrado físico definitivo
+- [X] **Commit:** `feat: add complete transaction CRUD API with trash system`
 
 ### 1.4 Datos de prueba
-- [ ] Script de seed con transacciones de ejemplo
-- [ ] Al menos 10-15 transacciones variadas (ingresos/gastos)
-- [ ] **Commit:** `feat: add transaction seed data`
+- [X] Script de seed con transacciones de ejemplo (`seed-simple.ts`)
+- [X] Al menos 10-15 transacciones variadas (ingresos/gastos)
+- [X] **Commit:** Ya incluido en commits previos
 
 ### 1.5 Testing de API
 - [ ] Probar endpoints con Postman/Thunder Client

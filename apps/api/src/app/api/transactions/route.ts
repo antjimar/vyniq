@@ -10,6 +10,9 @@ export async function GET(request: NextRequest) {
     console.log('API: Obteniendo todas las transacciones');
     
     const transactions = await prisma.transaction.findMany({
+      where: {
+        deletedAt: null  // Solo transacciones no borradas
+      },
       orderBy: {
         date: 'desc' // Más recientes primero
       }

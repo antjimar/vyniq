@@ -16,6 +16,8 @@ model Transaction {
   category    String?   @db.VarChar(50)
   createdAt   DateTime? @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt   DateTime? @default(now()) @updatedAt @map("updated_at") @db.Timestamp(6)
+  deletedAt   DateTime? @map("deleted_at") @db.Timestamp(6) // Para borrado lógico
+
 
   @@index([category], map: "idx_transactions_category")
   @@index([date], map: "idx_transactions_date")

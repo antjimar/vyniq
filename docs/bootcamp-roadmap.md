@@ -91,10 +91,10 @@ CREATE TABLE transactions (
 - [X] **Commit:** `feat: add TransactionList component`
 
 ### 2.4 Integración con API
-- [ ] Hook personalizado `useTransactions`
-- [ ] Fetch de datos reales desde `/api/transactions`
-- [ ] Manejo de estados async (loading, success, error)
-- [ ] **Commit:** `feat: integrate frontend with transaction API`
+- [X] Hook personalizado `useTransactions`
+- [X] Fetch de datos reales desde `/api/transactions`
+- [X] Manejo de estados async (loading, success, error)
+- [X] **Commit:** `feat: integrate frontend with transaction API`
 
 ---
 

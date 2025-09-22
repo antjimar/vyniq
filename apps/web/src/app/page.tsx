@@ -1,45 +1,27 @@
+"use client";
 import TransactionList from '@/components/TransactionList';
-
-// Datos de prueba
-const mockTransactions = [
-  {
-    id: 1,
-    amount: 250.50,
-    description: "Supermercado semanal",
-    date: "2024-01-15",
-    type: "expense" as const,
-    category: "Alimentación"
-  },
-  {
-    id: 2,
-    amount: 3000,
-    description: "Salario enero",
-    date: "2024-01-01",
-    type: "income" as const,
-    category: "Trabajo"
-  },
-  {
-    id: 3,
-    amount: 45.30,
-    description: "Gasolina",
-    date: "2024-01-20",
-    type: "expense" as const,
-    category: "Transporte"
-  }
-];
+import { useTransactions } from '@/hooks/useTransactions';
 
 export default function Home() {
-  console.log("Home ejecutándose")
+  const { transactions, loading, error, refetch } = useTransactions();
 
   return (
-    <>
-      <TransactionList transactions={mockTransactions} />
+    <main className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Mis Transacciones</h1>
+      <TransactionList 
+        transactions={transactions} 
+        loading={loading} 
+        error={error} 
+      />
 
-      <TransactionList transactions={[]} loading={true} />
-      
-      <TransactionList transactions={[]} error="Error de conexión" />
-
-      <TransactionList transactions={[]} />
-    </>
+      {error && (
+        <button 
+          onClick={refetch} 
+          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+        >
+          Reintentar
+        </button>
+      )}
+    </main>
   );
 }

@@ -85,10 +85,10 @@ CREATE TABLE transactions (
 - [X] **Commit:** `feat: add frontend transaction types`
 
 ### 2.3 Lista de Transacciones
-- [ ] Componente `TransactionList`
-- [ ] Uso de `.map()` para renderizar múltiples items
-- [ ] Estados de loading/error
-- [ ] **Commit:** `feat: add TransactionList component`
+- [X] Componente `TransactionList`
+- [X] Uso de `.map()` para renderizar múltiples items
+- [X] Estados de loading/error
+- [X] **Commit:** `feat: add TransactionList component`
 
 ### 2.4 Integración con API
 - [ ] Hook personalizado `useTransactions`

@@ -5,14 +5,24 @@ import { useState } from "react";
 export default function Home() {
   console.log("Home ejecutándose")
 
-  const [counter, setCounter] = useState(0);
-
   return (
     <>
-      <p>Contador: {counter}</p>
-      <button onClick={() => setCounter(counter + 1)}>Incrementar</button>
-      <TransactionItem />
-      <TransactionItem />
+      <TransactionItem transaction={{
+        id: 1,
+        amount: 250.50,
+        description: "Supermercado semanal",
+        date: "2024-01-15",
+        type: "expense",
+        category: "Alimentación"
+      }} />
+      <TransactionItem transaction={{
+        id: 2,
+        amount: 300.00,
+        description: "Salario Enero",
+        date: "2024-01-01",
+        type: "income",
+        category: "Salario"
+      }} />
     </>
   );
 }

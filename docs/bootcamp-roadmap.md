@@ -73,16 +73,16 @@ CREATE TABLE transactions (
 ### Objetivo: UI que consume API real
 **Estimación:** 1-2 sesiones
 
-### 2.1 Tipos TypeScript frontend
-- [ ] Interface `Transaction` en `apps/web/src/types/`
-- [ ] Tipos específicos del frontend (no compartidos)
-- [ ] **Commit:** `feat: add frontend transaction types`
+### 2.1 Componente TransactionItem básico
+- [X] Estructura inicial del componente con props básicas
+- [X] Renderizado simple de datos hardcodeados
+- [X] Styling básico con Tailwind
+- [X] **Commit:** `feat: add basic TransactionItem component`
 
-### 2.2 Componente TransactionItem
-- [ ] Props basadas en modelo Transaction
-- [ ] Renderizado básico de datos (amount, description, date, type)
-- [ ] Styling básico con Tailwind
-- [ ] **Commit:** `feat: add TransactionItem component`
+### 2.2 Tipos TypeScript frontend  
+- [X] Interface `Transaction` en `apps/web/src/types/`
+- [X] Aplicar tipos al componente TransactionItem
+- [X] **Commit:** `feat: add frontend transaction types`
 
 ### 2.3 Lista de Transacciones
 - [ ] Componente `TransactionList`
